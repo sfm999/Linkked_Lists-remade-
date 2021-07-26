@@ -1,0 +1,28 @@
+int count_beats_left_in_track(Track track) {
+    int count = 0;
+    if(track->current != NULL) {
+        // Find the current beat in the track's beat
+        // then count from there
+        // Start at head
+        Beat curr = track->head;
+        // Iterate till we find the current selected
+        while(curr != track->current) {
+            curr = curr->next;
+        }
+        // Now count till we hit the end of the track
+        // without counting the current
+        curr = curr->next;
+        while(curr != NULL) {
+            curr = curr->next;
+            count++;
+        }
+    } else {
+        // There was no current selected, now check if track list is not empty
+        Beat curr = track->head;
+        while(curr != NULL) {
+            curr = curr->next;
+            count++;
+        }
+    }
+    return count;
+}
