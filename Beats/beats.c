@@ -256,7 +256,7 @@ int select_next_beat(Track track) {
         return TRACK_PLAYING;
     }
 
-    if(track->current->next != NULL) {
+    if(track->current != NULL && track->current->next != NULL) {
         track->current = track->current->next;
         return TRACK_PLAYING;
     }
